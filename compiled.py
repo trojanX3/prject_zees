@@ -13,6 +13,7 @@ HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36
 # response = requests.get(url)
 # soup = BeautifulSoup(response.content, 'html.parser')
 
+### this will scrap the provided site
 def scrap(link):
     if link[0] == '/':
         link = url + link
@@ -24,6 +25,7 @@ def scrap(link):
         return
     return soup
 
+## this will fetch the single product page
 def productPage(url):
     obj = {}
     soup = scrap(url)
@@ -40,6 +42,7 @@ def productPage(url):
     print(obj)
     data.append(obj)
 
+### this will fetch all possible linkis
 def getAllLinks():
     for page in pages:
         soup = scrap(url)
